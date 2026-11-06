@@ -4,6 +4,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <title>Um Jardim Para Você 🌻</title>
 
 <style>
@@ -192,8 +193,14 @@ footer {
 }
 
 @keyframes appear {
-  from { opacity: 0; transform: translateY(20px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(20px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 .petal {
@@ -212,8 +219,14 @@ footer {
 }
 
 @media(max-width: 420px) {
-  .garden { gap: 24px 5px; padding: 15px; }
-  .flower { font-size: 54px; }
+  .garden {
+    gap: 24px 5px;
+    padding: 15px;
+  }
+
+  .flower {
+    font-size: 54px;
+  }
 }
 </style>
 </head>
@@ -222,7 +235,9 @@ footer {
 
 <header>
   <small>Um pequeno presente</small>
+
   <h1>Um jardim para você</h1>
+
   <p class="subtitle">
     Existem coisas bonitas que não precisam de pressa.
     Algumas flores, por exemplo, florescem no seu próprio tempo.
@@ -234,6 +249,7 @@ footer {
 </p>
 
 <main>
+
   <section class="garden" id="garden">
 
     <button class="flower" onclick="showMessage(0)">
@@ -271,6 +287,7 @@ footer {
   </div>
 
   <section class="secret" id="secret">
+
     <h2>Você encontrou o coração do jardim. 💛</h2>
 
     <p>
@@ -282,39 +299,56 @@ footer {
     <button class="open-letter" onclick="openLetter()">
       Abrir uma última surpresa ✉
     </button>
+
   </section>
 
   <section class="letter" id="letter">
-    <h2>Uma pequena carta...</h2>
+
+    <h2>Uma pequena curiosidade...</h2>
 
     <p>
-      Não sei exatamente em que página essa história
-      está começando, e talvez essa seja justamente
-      a parte mais bonita.
+      A verdade é que ainda existem muitas coisas sobre
+      você que eu não conheço, e acho que essa é uma
+      das partes mais interessantes.
     </p>
 
     <p>
-      Só sei que descobri algumas coisas sobre você:
-      seu carinho pelo amarelo, pelas flores,
-      pelos lírios...
+      Quero descobrir suas coisas favoritas, conhecer
+      os lugares onde você se sente bem, entender suas
+      pequenas manias, saber o que te faz sorrir,
+      o que te encanta, o que te incomoda e até aquelas
+      coisinhas que pouca gente percebe sobre você.
     </p>
 
     <p>
-      E achei bonito transformar um pouquinho disso
-      em algo que pudesse chegar até você.
+      Quero saber das suas histórias, dos seus sonhos
+      e de tudo aquilo que você tiver vontade de compartilhar.
     </p>
 
     <p>
-      Não é uma grande declaração, nem uma promessa.
-      É só um pequeno gesto de alguém que quis
-      fazer seu dia um pouco mais bonito.
+      Não tenho pressa em descobrir tudo de uma vez.
+      Acho que conhecer alguém é justamente isso:
+      ter a oportunidade de descobrir um detalhe novo
+      a cada conversa.
+    </p>
+
+    <p>
+      Então, por enquanto, fica esse pequeno jardim,
+      algumas flores amarelas e um carinho em forma
+      de surpresa.
+    </p>
+
+    <p>
+      Espero que você goste. 💛
     </p>
 
     <p class="signature">
-      Com carinho, alguém que está gostando
-      de descobrir um pouquinho de você. 🌻
+      Com carinho, de alguém que quer continuar
+      descobrindo você. 🌻
     </p>
+
   </section>
+
 </main>
 
 <footer>
@@ -322,18 +356,27 @@ footer {
 </footer>
 
 <script>
+
 const messages = [
+
   "Assim como o amarelo, existem pessoas que parecem trazer um pouquinho de sol por onde passam.",
+
   "Algumas flores chamam atenção pela beleza. Outras, pelos detalhes. Acho que os lírios têm um pouco dos dois.",
+
   "A vida fica mais bonita quando encontramos motivos para apreciar as pequenas coisas.",
+
   "Nem toda coisa bonita precisa ser grandiosa. Às vezes, um pequeno gesto já diz bastante.",
+
   "Um bom vinho, uma boa conversa e uma companhia agradável. Algumas combinações parecem perfeitas.",
+
   "E talvez a melhor parte seja não saber exatamente o que vem depois, mas gostar da descoberta."
+
 ];
 
 let discovered = new Set();
 
 function showMessage(index) {
+
   document.getElementById("message").textContent =
     messages[index];
 
@@ -343,19 +386,29 @@ function showMessage(index) {
     discovered.size + " de 6 pequenas descobertas";
 
   if (discovered.size === 6) {
+
     setTimeout(() => {
-      document.getElementById("secret").style.display = "block";
+
+      document.getElementById("secret").style.display =
+        "block";
+
       document.getElementById("secret").scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
+
       petals();
+
     }, 700);
+
   }
+
 }
 
 function openLetter() {
-  document.getElementById("letter").style.display = "block";
+
+  document.getElementById("letter").style.display =
+    "block";
 
   document.getElementById("letter").scrollIntoView({
     behavior: "smooth",
@@ -363,27 +416,37 @@ function openLetter() {
   });
 
   petals();
+
 }
 
 function petals() {
+
   const emojis = ["🌼", "🌸", "💛", "🌻"];
 
   for (let i = 0; i < 24; i++) {
+
     const petal = document.createElement("div");
 
     petal.className = "petal";
+
     petal.textContent =
       emojis[Math.floor(Math.random() * emojis.length)];
 
     petal.style.left = Math.random() * 100 + "vw";
+
     petal.style.animationDuration =
       (3 + Math.random() * 4) + "s";
 
     document.body.appendChild(petal);
 
-    setTimeout(() => petal.remove(), 7500);
+    setTimeout(() => {
+      petal.remove();
+    }, 7500);
+
   }
+
 }
+
 </script>
 
 </body>
