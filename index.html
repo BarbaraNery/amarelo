@@ -1,5 +1,7 @@
+
 <!DOCTYPE html>
 <html lang="pt-BR">
+
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -7,6 +9,9 @@
 <title>Um Jardim Para Você 🌻</title>
 
 <style>
+
+/* CONFIGURAÇÕES GERAIS */
+
 * {
   margin: 0;
   padding: 0;
@@ -17,7 +22,10 @@ body {
   min-height: 100vh;
   font-family: Georgia, serif;
   background: linear-gradient(
-    180deg, #fff9e9, #f8edcc, #e8edce
+    180deg,
+    #fff9e9,
+    #f8edcc,
+    #e8edce
   );
   color: #665334;
   overflow-x: hidden;
@@ -32,6 +40,7 @@ header small {
   letter-spacing: 4px;
   color: #a68a51;
   text-transform: uppercase;
+  font-size: 11px;
 }
 
 h1 {
@@ -56,12 +65,16 @@ h1 {
   color: #927b50;
 }
 
+/* JARDIM */
+
 .garden {
   max-width: 650px;
   margin: 25px auto;
   padding: 25px;
+
   display: grid;
   grid-template-columns: repeat(3, 1fr);
+
   gap: 25px 12px;
   justify-items: center;
 }
@@ -70,14 +83,24 @@ h1 {
   border: none;
   background: transparent;
   cursor: pointer;
+
   font-size: 65px;
-  transition: transform .4s;
+
+  transition: transform .3s;
+
   animation: float 3s ease-in-out infinite;
+
   filter: drop-shadow(0 7px 5px #ad955033);
+
+  -webkit-tap-highlight-color: transparent;
 }
 
 .flower:hover {
-  transform: scale(1.2) rotate(8deg);
+  transform: scale(1.15);
+}
+
+.flower:active {
+  transform: scale(.9);
 }
 
 .flower:nth-child(even) {
@@ -92,21 +115,38 @@ h1 {
   letter-spacing: 1px;
 }
 
-@keyframes float {
-  0%, 100% { transform: translateY(0); }
-  50% { transform: translateY(-9px); }
+.flower.discovered {
+  filter: drop-shadow(0 0 10px #e8c65d);
 }
 
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+
+  50% {
+    transform: translateY(-9px);
+  }
+}
+
+/* MENSAGENS */
+
 .message {
-  min-height: 100px;
+  min-height: 110px;
+
   text-align: center;
+
   padding: 20px;
-  margin: 10px auto 35px;
+  margin: 10px auto 25px;
+
   max-width: 450px;
+
   font-size: 19px;
   font-style: italic;
   line-height: 1.7;
+
   color: #94713c;
+
   transition: opacity .4s;
 }
 
@@ -114,20 +154,26 @@ h1 {
   text-align: center;
   color: #a18b5f;
   font-size: 13px;
-  margin-bottom: 30px;
+  margin-bottom: 35px;
 }
+
+/* SURPRESA FINAL */
 
 .secret {
   display: none;
+
   text-align: center;
+
   padding: 30px 20px 70px;
+
   animation: appear 1s ease;
 }
 
 .secret h2 {
   font-weight: normal;
-  font-size: 30px;
+  font-size: 28px;
   margin-bottom: 20px;
+  color: #94713c;
 }
 
 .secret p {
@@ -137,34 +183,49 @@ h1 {
   font-size: 17px;
 }
 
-button.open-letter {
+.open-letter {
   border: 1px solid #c6a96e;
+
   background: #fff9eb;
   color: #94713c;
+
   padding: 15px 28px;
+
   border-radius: 30px;
+
   font-family: Georgia, serif;
   font-size: 15px;
+
   margin-top: 30px;
+
   cursor: pointer;
   transition: .3s;
 }
 
-button.open-letter:hover {
+.open-letter:hover {
   background: #ead9a9;
 }
 
+/* CARTA */
+
 .letter {
   display: none;
+
   max-width: 490px;
+
   margin: 30px auto 70px;
   padding: 35px 25px;
+
   background: #fffdf5;
+
   border: 1px solid #ead9a9;
   border-radius: 8px;
+
   box-shadow: 0 12px 40px #76603b18;
+
   text-align: center;
   line-height: 2;
+
   animation: appear 1s ease;
 }
 
@@ -172,10 +233,12 @@ button.open-letter:hover {
   font-weight: normal;
   color: #98743d;
   margin-bottom: 20px;
+  font-size: 26px;
 }
 
 .letter p {
   margin-bottom: 15px;
+  font-size: 17px;
 }
 
 .signature {
@@ -184,6 +247,8 @@ button.open-letter:hover {
   color: #a1844d;
 }
 
+/* RODAPÉ */
+
 footer {
   text-align: center;
   padding: 25px;
@@ -191,11 +256,14 @@ footer {
   color: #a18b5f;
 }
 
+/* ANIMAÇÕES */
+
 @keyframes appear {
   from {
     opacity: 0;
     transform: translateY(20px);
   }
+
   to {
     opacity: 1;
     transform: translateY(0);
@@ -204,9 +272,11 @@ footer {
 
 .petal {
   position: fixed;
-  top: -20px;
+  top: -30px;
+
   pointer-events: none;
   z-index: 10;
+
   animation: fall linear forwards;
 }
 
@@ -217,7 +287,10 @@ footer {
   }
 }
 
+/* CELULAR */
+
 @media(max-width: 420px) {
+
   .garden {
     gap: 24px 5px;
     padding: 15px;
@@ -226,13 +299,28 @@ footer {
   .flower {
     font-size: 54px;
   }
+
+  .letter {
+    margin: 20px 15px 50px;
+    padding: 30px 20px;
+  }
+
+  .letter p {
+    font-size: 16px;
+  }
+
 }
+
 </style>
+
 </head>
 
 <body>
 
+<!-- ABERTURA -->
+
 <header>
+
   <small>Um pequeno presente</small>
 
   <h1>Um jardim para você</h1>
@@ -241,6 +329,7 @@ footer {
     Existem coisas bonitas que não precisam de pressa.
     Algumas flores, por exemplo, florescem no seu próprio tempo.
   </p>
+
 </header>
 
 <p class="intro">
@@ -249,45 +338,61 @@ footer {
 
 <main>
 
+  <!-- FLORES INTERATIVAS -->
+
   <section class="garden" id="garden">
 
-    <button class="flower" onclick="showMessage(0)">
-      🌻 <span>Primeira flor</span>
+    <button type="button" class="flower" data-flower="0">
+      🌻
+      <span>Primeira flor</span>
     </button>
 
-    <button class="flower" onclick="showMessage(1)">
-      🌼 <span>Segunda flor</span>
+    <button type="button" class="flower" data-flower="1">
+      🌼
+      <span>Segunda flor</span>
     </button>
 
-    <button class="flower" onclick="showMessage(2)">
-      🌷 <span>Terceira flor</span>
+    <button type="button" class="flower" data-flower="2">
+      🌷
+      <span>Terceira flor</span>
     </button>
 
-    <button class="flower" onclick="showMessage(3)">
-      🌻 <span>Quarta flor</span>
+    <button type="button" class="flower" data-flower="3">
+      🌻
+      <span>Quarta flor</span>
     </button>
 
-    <button class="flower" onclick="showMessage(4)">
-      💛 <span>Quinta flor</span>
+    <button type="button" class="flower" data-flower="4">
+      💛
+      <span>Quinta flor</span>
     </button>
 
-    <button class="flower" onclick="showMessage(5)">
-      🌼 <span>Sexta flor</span>
+    <button type="button" class="flower" data-flower="5">
+      🌼
+      <span>Sexta flor</span>
     </button>
 
   </section>
 
-  <div class="message" id="message">
+  <!-- MENSAGEM DAS FLORES -->
+
+  <div class="message" id="message" aria-live="polite">
     Escolha uma flor e descubra o que ela guarda...
   </div>
+
+  <!-- CONTADOR -->
 
   <div class="counter" id="counter">
     0 de 6 pequenas descobertas
   </div>
 
+  <!-- SURPRESA -->
+
   <section class="secret" id="secret">
 
-    <h2>Você encontrou o coração do jardim. 💛</h2>
+    <h2>
+      Você encontrou o coração do jardim. 💛
+    </h2>
 
     <p>
       Talvez você não saiba, mas algumas coisas simples
@@ -295,11 +400,13 @@ footer {
       E conhecer um pouquinho sobre você foi uma dessas coisas.
     </p>
 
-    <button class="open-letter" onclick="openLetter()">
+    <button type="button" class="open-letter" id="openLetter">
       Abrir uma última surpresa ✉
     </button>
 
   </section>
+
+  <!-- CARTA FINAL -->
 
   <section class="letter" id="letter">
 
@@ -354,97 +461,154 @@ footer {
   Feito com carinho, especialmente para você.
 </footer>
 
+<!-- JAVASCRIPT -->
+
 <script>
 
-const messages = [
+document.addEventListener("DOMContentLoaded", function() {
 
-  "Assim como o amarelo, existem pessoas que parecem trazer um pouquinho de sol por onde passam.",
+  const messages = [
 
-  "Algumas flores chamam atenção pela beleza."
+    "Assim como o amarelo, existem pessoas que parecem trazer um pouquinho de sol por onde passam.",
 
-  "A vida fica mais bonita quando encontramos motivos para apreciar as pequenas coisas.",
+    "Algumas flores chamam atenção pela beleza. Outras, pelos detalhes. Acho que os lírios têm um pouco dos dois.",
 
-  "Nem toda coisa bonita precisa ser grandiosa. Às vezes, um pequeno gesto já diz bastante.",
+    "A vida fica mais bonita quando encontramos motivos para apreciar as pequenas coisas.",
 
-  "Um bom vinho, uma boa conversa e uma companhia agradável. Algumas combinações parecem perfeitas.",
+    "Nem toda coisa bonita precisa ser grandiosa. Às vezes, um pequeno gesto já diz bastante.",
 
-  "E talvez a melhor parte seja não saber exatamente o que vem depois, mas gostar da descoberta."
+    "Um bom vinho, uma boa conversa e uma companhia agradável. Algumas combinações parecem perfeitas.",
 
-];
+    "E talvez a melhor parte seja não saber exatamente o que vem depois, mas gostar da descoberta."
 
-let discovered = new Set();
+  ];
 
-function showMessage(index) {
+  let discovered = new Set();
 
-  document.getElementById("message").textContent =
-    messages[index];
+  const flowers = document.querySelectorAll(".flower");
 
-  discovered.add(index);
+  const message = document.getElementById("message");
 
-  document.getElementById("counter").textContent =
-    discovered.size + " de 6 pequenas descobertas";
+  const counter = document.getElementById("counter");
 
-  if (discovered.size === 6) {
+  const secret = document.getElementById("secret");
 
-    setTimeout(() => {
+  const letter = document.getElementById("letter");
 
-      document.getElementById("secret").style.display =
-        "block";
+  const openLetterButton =
+    document.getElementById("openLetter");
 
-      document.getElementById("secret").scrollIntoView({
+
+  // CLIQUE NAS FLORES
+
+  flowers.forEach(function(flower) {
+
+    flower.addEventListener("click", function() {
+
+      const index = Number(this.dataset.flower);
+
+      // Verifica o índice da flor
+
+      if (index < 0 || index >= messages.length) {
+        return;
+      }
+
+      // Exibe a mensagem
+
+      message.textContent = messages[index];
+
+      // Registra a descoberta
+
+      discovered.add(index);
+
+      // Destaca a flor descoberta
+
+      this.classList.add("discovered");
+
+      // Atualiza o contador
+
+      counter.textContent =
+        discovered.size + " de 6 pequenas descobertas";
+
+      // Libera a surpresa quando todas forem descobertas
+
+      if (discovered.size === 6) {
+
+        secret.style.display = "block";
+
+        petals();
+
+        setTimeout(function() {
+
+          secret.scrollIntoView({
+            behavior: "smooth",
+            block: "center"
+          });
+
+        }, 300);
+
+      }
+
+    });
+
+  });
+
+
+  // ABRIR A CARTA
+
+  openLetterButton.addEventListener("click", function() {
+
+    letter.style.display = "block";
+
+    petals();
+
+    setTimeout(function() {
+
+      letter.scrollIntoView({
         behavior: "smooth",
         block: "center"
       });
 
-      petals();
+    }, 200);
 
-    }, 700);
-
-  }
-
-}
-
-function openLetter() {
-
-  document.getElementById("letter").style.display =
-    "block";
-
-  document.getElementById("letter").scrollIntoView({
-    behavior: "smooth",
-    block: "center"
   });
 
-  petals();
 
-}
+  // ANIMAÇÃO DE PÉTALAS
 
-function petals() {
+  function petals() {
 
-  const emojis = ["🌼", "🌸", "💛", "🌻"];
+    const emojis = ["🌼", "🌸", "💛", "🌻"];
 
-  for (let i = 0; i < 24; i++) {
+    for (let i = 0; i < 24; i++) {
 
-    const petal = document.createElement("div");
+      const petal = document.createElement("div");
 
-    petal.className = "petal";
+      petal.className = "petal";
 
-    petal.textContent =
-      emojis[Math.floor(Math.random() * emojis.length)];
+      petal.textContent =
+        emojis[Math.floor(Math.random() * emojis.length)];
 
-    petal.style.left = Math.random() * 100 + "vw";
+      petal.style.left =
+        Math.random() * 100 + "vw";
 
-    petal.style.animationDuration =
-      (3 + Math.random() * 4) + "s";
+      petal.style.animationDuration =
+        (3 + Math.random() * 4) + "s";
 
-    document.body.appendChild(petal);
+      petal.style.fontSize =
+        (15 + Math.random() * 15) + "px";
 
-    setTimeout(() => {
-      petal.remove();
-    }, 7500);
+      document.body.appendChild(petal);
+
+      setTimeout(function() {
+        petal.remove();
+      }, 7500);
+
+    }
 
   }
 
-}
+});
 
 </script>
 
